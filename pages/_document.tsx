@@ -12,14 +12,14 @@ export default function Document() {
         <NextScript />
         <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js' />
         <Script  
-          id="kofi-widget" 
+          id="freakingwish" 
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html:
-            `kofiWidgetOverlay.draw('shnai', {
+            `kofiWidgetOverlay.draw('freakingwish', {
               'type': 'floating-chat',
-              'floating-chat.donateButton.text':'',
-              'floating-chat.donateButton.background-color': '#0E66C2',
+              'floating-chat.donateButton.text':'Tip Me',
+              'floating-chat.donateButton.background-color': '#00b9fe',
               'floating-chat.donateButton.text-color': '#fff'
             });`
           }}
