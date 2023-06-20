@@ -2,10 +2,12 @@ import { compact } from "lodash";
 import Sentiment from "sentiment";
 
 interface Validation {
+  type: "positive" | "negative";
   message: string;
 }
 
-interface RankResponse {
+
+export interface RankResponse {
   score: number;
   validations: Validation[];
 }
@@ -54,12 +56,15 @@ export function rank(post: string, postMedia: boolean): RankResponse {
       const result = rule(postData);
       if (result?.message !== undefined) {
         return {
+          type: "positive", 
+          score: result.score,
           message: result.message,
         };
       }
       return null;
     })
   );
+  
   const sum = scores.reduce((partialSum, score) => partialSum * score, 1);
 
   return {

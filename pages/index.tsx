@@ -2,7 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import { Post } from "@/components/Post";
-import { Ranking } from "@/components/Ranking";
+import { Ranking} from "@/components/Ranking";
+import { RankResponse } from "@/lib/linkedin-algorithm";
+
 import { rank } from "@/lib/linkedin-algorithm";
 import { Toaster, toast } from "react-hot-toast";
 import LoadingDots from "@/components/LoadingDots";
@@ -21,7 +23,7 @@ export default function Home() {
   const [vibe, setVibe] = useState<VibeType>("Story");
 
   useEffect(() => {
-    const rankResponse = rank(post, media);
+    const rankResponse: RankResponse = rank(post, media);
     setRanking(rankResponse);
   }, [post, media]);
 
@@ -128,27 +130,31 @@ Add space between each abstract.`;
         prompt,
       }),
     });
-
+  
     if (!response.ok) {
       throw new Error(response.statusText);
     }
-
-    const reader = response.body?.getReader();
+  
+    const reader = response.body!.getReader();
     const decoder = new TextDecoder();
     let done = false;
     let optimizedPost = "";
-
-    while (!done) {
-      const { value, done: readerDone } = await reader?.read();
-      done = readerDone;
-      const chunk = decoder.decode(value);
-      optimizedPost += chunk;
-    }
-
-    setOptimizedPost(optimizedPost);
-    setLoading(false);
+  
+    const readResponse: () => Promise<void> = async () => {
+      const { value, done } = await reader.read();
+      if (done) {
+        setOptimizedPost(optimizedPost);
+        setLoading(false);
+        return;
+      }
+  
+      optimizedPost += decoder.decode(value);
+      await readResponse();
+    };
+  
+    await readResponse();
   };
-
+  
   return (
     <>
       <Head>

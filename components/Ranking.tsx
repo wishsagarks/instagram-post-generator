@@ -1,11 +1,12 @@
 import classNames from "classnames";
 
-interface RankResponse {
+
+export interface RankResponse {
   validations: ValidationItem[];
   score: number;
 }
 
-interface ValidationItem {
+export interface ValidationItem {
   type: "positive" | "negative";
   message: string;
 }
