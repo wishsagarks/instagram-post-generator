@@ -1,21 +1,22 @@
-import React, {useState} from "react";
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Dialog } from '@headlessui/react'
+import React, { useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Dialog } from "@headlessui/react";
+import { Router, useRouter } from "next/router";
 
 interface NavigationItem {
-    name: string;
-    href: string;
+  name: string;
+  href: string;
 }
 
-const navigation : NavigationItem[] = [
-    { name: 'Home', href: '#' },
-    { name: 'Feature', href: '#' },
-    { name: 'Help & Support', href: '#' },
-   
-]  
+const navigation: NavigationItem[] = [
+  { name: "Home", href: "/" },
+  { name: "Feature", href: "#feature" },
+  { name: "Help & Support", href: "#faq" },
+];
 
-const Header= () => {
+const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
+  const router = useRouter()
 
   return (
     <div className="bg-white">
@@ -98,7 +99,7 @@ const Header= () => {
         </Dialog>
       </header>
 
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative isolate px-6 pt-7 lg:px-8">
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
@@ -121,22 +122,21 @@ const Header= () => {
               </a>
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-center mt-10">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Boost Your Online Presence with Captivating Instagram Posts
+              Boost Your Online Presence with WishGPT
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Create captivating Instagram posts effortlessly and boost your
-              online presence. Unlock the power of engaging visuals and
-              compelling content for your Instagram business.
+              The only way to exist in the 21st century is by being online. So, unlock the power of engaging visuals and
+              compelling content for your online business.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                href="#"
+              <button
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={()=>{router.push('/linkedin')}}
               >
                 Get started
-              </a>
+              </button>
               <a
                 href="#"
                 className="texdt-sm font-semibold leading-6 text-gray-900"

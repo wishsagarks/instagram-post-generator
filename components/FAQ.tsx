@@ -2,7 +2,7 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <div className="flex items-center justify-center h-screen mt-28">
+    <div className="flex items-center justify-center h-screen mt-28" id="faq">
       <div className="bg-white">
         <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
           <h2 className="text-2xl font-semibold">Frequently Asked Questions</h2>
@@ -69,8 +69,7 @@ const FAQ = () => {
             </details>
             <details className="w-full rounded-lg ring-2 ring-purple-600">
               <summary className="px-4 py-6">
-                Can I schedule the generated posts to be published at a specific
-                time?
+                Can I schedule the generated posts for publishing?
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
                 The Instagram Post Generator focuses on generating post ideas.
