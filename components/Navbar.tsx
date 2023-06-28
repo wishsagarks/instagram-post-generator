@@ -82,12 +82,12 @@ const Navbar: React.FC<NavbarProps> = ({activeLink}) => {
                   </div>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <div
+                    onClick={()=>{router.push('/contributors')}}
                     className={`block py-2 cursor-pointer pl-3 pr-4 bg-blue-700 rounded md:bg-transparent md:p-0 ${activeLink==='Contributors' ? 'text-blue-400' : 'text-white'}`}
                   >
                     Contributors
-                  </a>
+                  </div>
                 </li>
               </ul>
             </div>
