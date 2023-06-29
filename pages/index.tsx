@@ -1,13 +1,15 @@
 import Head from "next/head";
-import Header from '@/components/Header'
+import { useEffect, useState, useRef } from "react";
+import Header from "@/components/Header";
 import FAQ from "@/components/FAQ";
 import Feature from "@/components/Feature";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Instagram Post Generator</title>
+        <title>WishCodes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="👩‍💼" />
         <meta
@@ -42,12 +44,13 @@ export default function Home() {
         />
       </Head>
 
-      <main>
-        <div>
-          <Header />
-          <Feature />
-          <FAQ />
-        </div>
+      <main className={`bg-[#333333] h-[100vh]`}>
+          <div>
+          <Hero />
+          </div>
+          <div className="flex flex-col gap-3 items-center">
+          <span className="text-white py-10 md:text-7xl text-4xl md:max-w-full max-w-sm md:font-thin font-semibold text-center">Transforming your prompts</span>
+          </div>
       </main>
     </>
   );
