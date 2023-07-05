@@ -73,7 +73,7 @@ const FAQ = () => {
               </summary>
               <p className="px-4 py-6 pt-0 ml-4 -mt-4 text-gray-600">
                 The Instagram Post Generator focuses on generating post ideas.
-                You can use scheduling tools or Instagram's built-in scheduling
+                You can use scheduling tools or Instagram&apos;s built-in scheduling
                 features to plan and publish the posts at your desired time.{" "}
               </p>
             </details>
