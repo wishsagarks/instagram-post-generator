@@ -1,5 +1,4 @@
 import React from "react";
-import { Tilt } from "react-tilt";
 import { Contributor, contributors } from "../contributors";
 import Navbar from "@/components/Navbar";
 import { BsGithub, BsLinkedin } from "react-icons/bs";
@@ -19,7 +18,7 @@ const ContributorCard = ({
   image,
 }: ContributorCardProps) => {
   return (
-    <Tilt>
+    <div>
       <div className="h-fit w-full glassmorphism rounded-xl px-10 py-10 flex flex-col items-center gap-3">
         <img
           src={image}
@@ -36,7 +35,7 @@ const ContributorCard = ({
           </a>
         </div>
       </div>
-    </Tilt>
+    </div>
   );
 };
 

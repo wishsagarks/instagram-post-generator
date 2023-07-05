@@ -8,6 +8,7 @@ import {
   BsInstagram,
 } from "react-icons/bs";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Hero = () => {
   const router = useRouter();
@@ -68,7 +69,7 @@ const Hero = () => {
               Find Out How
             </button>
           </div>
-          <img
+          <Image
             src="./photo1.jpg"
             alt="lp-photo"
             className="md:w-1/2 w-96 h-auto rounded-full drop-shadow-xl md:mb-0 mb-20"
@@ -92,7 +93,7 @@ const Hero = () => {
           speed={0.6}
           className="flex items-center justify-center text-5xl flex-col gap-10 md:bg-transparent bg-insta-bg md:px-0 px-5"
         >
-          <img
+          <Image
             src="./insta-bg.png"
             alt="stories"
             className="absolute -z-10 md:w-full md:h-[95vh] hidden md:block"
@@ -134,14 +135,14 @@ const Hero = () => {
               </div>
             </button>
           </div>
-          <img src="./linkedin.jpg" alt="linkedin" className="h-[120vh] md:block hidden" />
+          <Image src="./linkedin.jpg" alt="linkedin" className="h-[120vh] md:block hidden" />
         </ParallaxLayer>
         <ParallaxLayer
           offset={3}
           speed={0.02}
           className=" flex items-center justify-center text-5xl md:bg-[#9f4bff]"
         >
-          <img
+          <Image
             src="./insta1.jpg"
             alt="instagram"
             className="h-[100vh] absolute -left-28 top-0 -z-10 md:block hidden"
@@ -162,7 +163,7 @@ const Hero = () => {
               </div>
             </button>
           </div>
-          <img
+          <Image
             src="./insta2.jpg"
             alt="instagram"
             className="h-[100vh] absolute -right-20 bottom-0 -z-10 md:block hidden"
